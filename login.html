@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="C:\Users\Júlia\Desktop\Vs code\python\site\templates\static\css\login.css" >
+    <title>Login</title>
+    <style>body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+    }
+    
+    .login-form {
+        max-width: 320px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .login-form h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .login-form label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .login-form input[type="email"],
+    .login-form input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    
+    .login-form input[type="checkbox"] {
+        margin-right: 5px;
+    }
+    
+    .login-form input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .login-form input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    
+    .login-form p {
+        text-align: center;
+        margin-top: 10px;
+    }
+    
+    .login-form a {
+        color: #4CAF50;
+        text-decoration: none;
+    }
+    
+    .login-form a:hover {
+        text-decoration: underline;
+    }</style>
+</head>
+<body>
+    <div class="login-form">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <label for="email">Contato@htmlecsspro.com</label><br>
+            <input type="email" id="email" name="email" value="contato@htmlecsspro.com" readonly><br>
+            <label for="password">Senha</label><br>
+            <input type="password" id="password" name="password" value="1234" readonly><br>
+            <input type="checkbox" id="remember" name="remember">
+            <label for="remember">Manter-me logado</label><br>
+            <input type="submit" value="Logar">
+        </form>
+        <p>Ainda não tem conta? <a href="/signup">Cadastre-se</a></p>
+    </div>
+    
+</body>
+</html>
+
