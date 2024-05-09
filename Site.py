@@ -19,6 +19,14 @@ def login():
 @app.route("/usuarios/<nome_usuario>")
 def usuarios(nome_usuario):
     return render_template("usuarios.html", nome_usuario = nome_usuario) 
+
+@app.route("/cadastro")
+def cadastro():
+    return render_template("cadastro.html") 
+
+@app.route("/tela")
+def tela():
+    return render_template("tela.html") 
  
 
 # colocar o site no ar 
