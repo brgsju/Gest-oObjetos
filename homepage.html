@@ -1,172 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Página Inicial</title>
+    <title>Página de Reserva</title>
     <style>body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f0f0f0;
-    }
-    
-    .header {
-        background-color: #001f3f; /* Azul Marinho */
-        color: #fff;
-        padding: 20px;
-        text-align: center;
-    }
-    
-    .tabs {
-        overflow: hidden;
-        border-bottom: 1px solid #ccc;
-    }
-    
-    .tablink {
-        background-color: #001f3f; /* Azul Marinho */
-        float: left;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        padding: 14px 16px;
-        transition: background-color 0.3s, color 0.3s; /* Adicionando transição de cor */
-    }
-    
-    .tablink:hover {
-        background-color: #fff; /* Fundo branco ao passar o mouse */
-        color: #001f3f; /* Texto em azul marinho ao passar o mouse */
-    }
-    
-    .tablink.active {
-        background-color: #007bff; /* Azul padrão */
-        color: #fff;
-    }
-    
-    .tabcontent {
-        display: none;
-        padding: 20px;
-    }
-    
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
-    
-    th, td {
-        padding: 8px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-    }
-    
-    th {
-        background-color: #f2f2f2;
-    }
-    
-    button {
-        background-color: #007bff;
-        color: white;
-        border: none;
-        padding: 8px 12px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-    
-    button:hover {
-        background-color: #0056b3;
-    }
-    </style>
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: no-repeat center url("C:\Users\Júlia\Desktop\Vs code\python\site\static\rural_logo02.png") ;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8; /* Ajuste a opacidade conforme necessário */
+}
+
+.container {
+    text-align: center;
+    margin-bottom: 100px; /* Empurra para o final da página */
+}
+
+h1 {
+    font-size: 48px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.botao {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Cor do botão */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 24px;
+    transition: background-color 0.3s ease;
+}
+
+.botao:hover {
+    background-color: #0056b3; /* Cor do botão quando passa o mouse */
+}
+</style>
 </head>
 <body>
-    <div class="header">
-        <h2>Bem-vindo, <span id="username">Nome do Usuário</span>!</h2>
+    <div class="container">
+        <h1>Equipamentos IM</h1>
+        <a href="/login" class="botao">RESERVAR</a>
     </div>
-    <div class="tabs">
-        <button class="tablink" onclick="openTab('Pendencias')">Pendências</button>
-        <button class="tablink" onclick="openTab('Disponiveis')">Disponíveis</button>
-        <button class="tablink" onclick="openTab('Historico')">Histórico</button>
-    </div>
-    <div id="Pendencias" class="tabcontent">
-        <h3>Pendências</h3>
-        <table>
-            <tr>
-                <th>Tarefa</th>
-                <th>Status</th>
-            </tr>
-            <tr>
-                <td>Revisar trabalho de história</td>
-                <td>Pendente</td>
-            </tr>
-            <tr>
-                <td>Preparar apresentação de matemática</td>
-                <td>Pendente</td>
-            </tr>
-            <!-- Adicione mais linhas conforme necessário -->
-        </table>
-    </div>
-    <div id="Disponiveis" class="tabcontent">
-        <h3>Recursos Disponíveis</h3>
-        <table>
-            <tr>
-                <th>Sala</th>
-                <th>Data</th>
-                <th>Horário</th>
-                <th>Reservar</th>
-            </tr>
-            <tr>
-                <td>Sala 101</td>
-                <td>2024-05-10</td>
-                <td>09:00 - 11:00</td>
-                <td><button onclick="reserveResource('Sala 101', '2024-05-10', '09:00 - 11:00')">Reservar</button></td>
-            </tr>
-            <!-- Adicione mais linhas conforme necessário -->
-        </table>
-    </div>
-    <div id="Historico" class="tabcontent">
-        <h3>Histórico de Reservas</h3>
-        <table>
-            <tr>
-                <th>Sala</th>
-                <th>Data</th>
-                <th>Horário</th>
-                <th>Status</th>
-            </tr>
-            <tr>
-                <td>Sala 101</td>
-                <td>2024-05-05</td>
-                <td>14:00 - 16:00</td>
-                <td>Concluída</td>
-            </tr>
-            <tr>
-                <td>Sala 102</td>
-                <td>2024-05-07</td>
-                <td>10:00 - 12:00</td>
-                <td>Concluída</td>
-            </tr>
-            <!-- Adicione mais linhas conforme necessário -->
-        </table>
-    </div>
-    <script>
-        function openTab(tabName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tablink");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(tabName).style.display = "block";
-            event.currentTarget.className += " active";
-        }
-
-        function reserveResource(sala, data, horario) {
-            // Aqui você pode implementar a lógica para fazer a reserva
-            alert('Reserva feita para a Sala ' + sala + ' em ' + data + ', horário: ' + horario);
-        }
-    </script>
 </body>
 </html>
