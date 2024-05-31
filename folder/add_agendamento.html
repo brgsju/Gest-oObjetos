@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Agendamento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input,
+        select,
+        button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+        }
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .message {
+            max-width: 400px;
+            margin: 0 auto 20px;
+            padding: 10px;
+            border: 1px solid;
+            border-radius: 5px;
+        }
+        .success {
+            border-color: #4caf50;
+            color: #4caf50;
+        }
+        .danger {
+            border-color: #f44336;
+            color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <h1>Adicionar Agendamento</h1>
+
+    <form action="{{ url_for('add_agendamento') }}" method="post">
+        <label for="data">Data:</label>
+        <input type="date" id="data" name="data" required>
+        <br>
+        <label for="horario_inicio">Horário de Início:</label>
+        <input type="time" id="horario_inicio" name="horario_inicio" required>
+        <br>
+        <label for="horario_fim">Horário de Fim:</label>
+        <input type="time" id="horario_fim" name="horario_fim" required>
+        <br>
+        <label for="equipamento_id">Equipamento:</label>
+        <select id="equipamento_id" name="equipamento_id" required>
+            {% for equipamento in available_equipamentos %}
+            <option value="{{ equipamento.id }}">{{ equipamento.tipo }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <button type="submit">Agendar</button>
+    </form>
+</body>
+</html>
